@@ -25,32 +25,32 @@ function callName(req, res) {
     child_process.exec(command_string, function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
-            res.send('exec error: ' + error + " ")
+            res.status(200).send('exec error: ' + error + " ")
         }
         console.log("Standard Output: " + stdout + " ");
         console.log("Error Output: " + stderr + " ");
         
     });
-    res.send("Processing is underway")
+    res.status(200).send("Processing is underway")
 } 
 
 
 
 
-app.get('/test', callName); 
+// app.get('/test', callName); 
   
-function callName(req, res) {
-    stream('https://images-na.ssl-images-amazon.com/images/I/31TsfgL0mzL._AC_SY200_.jpg');
-    console.log("Kick off");
-    var child_process = require("child_process");
-    child_process.exec("ls", function(error, stdout, stderr) {
-        if (error !== null) {
-            console.log('exec error: ' + error);
-            res.send('exec error: ' + error + " ")
-        }
-        console.log("Standard Output: " + stdout + " ");
-        console.log("Error Output: " + stderr + " ");
+// function callName(req, res) {
+//     stream('https://images-na.ssl-images-amazon.com/images/I/31TsfgL0mzL._AC_SY200_.jpg');
+//     console.log("Kick off");
+//     var child_process = require("child_process");
+//     child_process.exec("ls", function(error, stdout, stderr) {
+//         if (error !== null) {
+//             console.log('exec error: ' + error);
+//             res.send('exec error: ' + error + " ")
+//         }
+//         console.log("Standard Output: " + stdout + " ");
+//         console.log("Error Output: " + stderr + " ");
         
-    });
-    res.send("Processing is underway")
-} 
+//     });
+//     res.send("Processing is underway")
+// } 

@@ -5,6 +5,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
 <style>
  body {
     display: flex;
@@ -39,7 +40,7 @@
                               I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
-                              <a href="#">This is a link</a>
+                                    <a class="waves-effect waves-teal btn-flat" onclick="post_call()">Button</a>
                               <a href="#">This is a link</a>
                             </div>
                           </div>
@@ -86,6 +87,22 @@
                         </div>
                       </footer>
                                           
-
+<script>
+function post_call() {
+    $.ajax({
+    type: 'POST',
+    url: '/name/',
+    data: JSON.stringify ({name: 'jonas'}),
+    statusCode: {
+               200: function (response) {
+                      // do your stuff here
+                      console.log(response.responseText)
+                    }
+         },
+    contentType: "application/json",
+    dataType: 'json'
+});
+}
+</script>
     </body>
 </html>

@@ -14,6 +14,7 @@ command_string=`python run_swap.py --gpu_ids 0 --model imitator --output_dir ./o
 
 command_string_2="ls"
 app.use(express.static(__dirname + '/outputs'));
+app.use(express.static(__dirname + '/assets'));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -23,7 +24,7 @@ app.post('/name', callName);
 function callName(req, res) {
       
     var child_process = require("child_process");
-    child_process.exec(command_string, function(error, stdout, stderr) {
+    child_process.exec(command_string_2, function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
             res.status(200).send('exec error: ' + error + " ")

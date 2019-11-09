@@ -37,6 +37,16 @@
                             <div class="card-content">
                               <span class="card-title">Generate Swapped Product Images</span>
                               <p>Input URLs of Input model & target model with new dress to generate a swapped image</p>
+                              <div class="row">
+                                <div class="input-field col s6">
+                                  <input placeholder="" id="first_url" type="text" >
+                                  <label for="first_url">Source Model Image URL</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <input id="second_url" type="text" >
+                                  <label for="secind_url">Target Dress Image URL</label>
+                                </div>
+                              </div>
                             </div>
                             <div class="card-action">
                                     <a class="waves-effect waves-light red darken-2 btn-large right" onclick="swap_call()"><i class="large material-icons left">transfer_within_a_station</i>Swap!</a>
@@ -46,8 +56,14 @@
                         <div class="col s12 m6">
                                 <div class="card large">
                                   <div class="card-content">
-                                    <span class="card-title">Generate Multiple Model Views from 1 Image</span>
+                                    <span class="card-title">Generate Multiple Model Views From Just 1 Image!</span>
                                     <p>Provide a single image URL of model to generate images in new poses</p>
+                                    <div class="row">
+                                      <div class="input-field col s6">
+                                        <input  id="third_url" type="text" >
+                                        <label for="third_url">Source Model Image URL</label>
+                                      </div>
+                                    </div>
                                   </div>
                                   <div class="card-action">
                                     <div class="card-action">
@@ -79,11 +95,15 @@
                       </footer>
                                           
 <script>
+
 function swap_call() {
+  var first = $('#first_url').val();
+  var second = $('#second_url').val();
+  console.log(first+" "+second)
     $.ajax({
     type: 'POST',
     url: '/name/',
-    data: JSON.stringify ({name: 'jonas'}),
+    data: JSON.stringify ({first_url: first,second_url: second}),
     statusCode: {
                200: function (response) {
                       // do your stuff here
@@ -95,10 +115,12 @@ function swap_call() {
 });
 }
 function pose_call() {
+  var third = $('#third_url').val();
+  console.log(third)
     $.ajax({
     type: 'POST',
-    url: '/name/',
-    data: JSON.stringify ({name: 'jonas'}),
+    url: '/pose/',
+    data: JSON.stringify ({third_url: third}),
     statusCode: {
                200: function (response) {
                       // do your stuff here

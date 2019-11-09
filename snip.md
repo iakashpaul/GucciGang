@@ -60,3 +60,13 @@ Takes 30 mins
 
 -----------
 python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://localhost --port 8097
+
+# Access static assets
+Input 
+https://rakathon.akashpaul.com/src_imgs/imper_A_Pose/024_8_2_0000.jpg
+
+Target
+https://rakathon.akashpaul.com/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg
+
+Result
+https://rakathon.akashpaul.com/results/swappers/024_8_2_0000->Sweatshirts_Hoodies-id_0000680701_4_full.png

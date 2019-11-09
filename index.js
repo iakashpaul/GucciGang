@@ -1,7 +1,9 @@
 var express = require('express'); 
 var app = express(); 
 var path = require('path');
-  
+var fs = require('fs')
+const request = require('request');
+
 // Creates a server which runs on port 3000 and  
 // can be accessed through localhost:3000 
 app.listen(3000, function() { 
@@ -18,41 +20,69 @@ app.use(express.static(__dirname + '/assets'));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
+app.use(express.json());
+
+
+// Swap generator
 
 app.post('/name', callName); 
   
 function callName(req, res) {
-      
-    var child_process = require("child_process");
-    child_process.exec(command_string_2, function(error, stdout, stderr) {
-        if (error !== null) {
-            console.log('exec error: ' + error);
-            res.status(200).send('exec error: ' + error + " ")
-        }
-        console.log("Standard Output: " + stdout + " ");
-        console.log("Error Output: " + stderr + " ");
+    // console.log(req.body.first_url)
+    first_url=req.body.first_url
+    second_url=req.body.second_url
+
+    var picStream1 = fs.createWriteStream("1.jpg");
+    picStream1.on('close', function() {
+      console.log('First Image file saved, second Image will be downloaded now');
+
+    var picStream2 = fs.createWriteStream("2.jpg");
+    picStream2.on('close', function() {
+      console.log('Second Image downloaded, processing begins');
+      var child_process = require("child_process");
+        child_process.exec(command_string_2, function(error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+                res.status(200).send('exec error: ' + error + " ")
+            }
+            console.log("Standard Output: " + stdout + " ");
+            console.log("Error Output: " + stderr + " ");
+            
+        });
+    });
+    request(second_url).pipe(picStream2); 
         
     });
+    request(first_url).pipe(picStream1); 
+        
+
+
     res.status(200).send("Processing is underway")
 } 
 
+// View generator
 
-
-
-// app.get('/test', callName); 
+app.post('/pose', callName_pose); 
   
-// function callName(req, res) {
-//     stream('https://images-na.ssl-images-amazon.com/images/I/31TsfgL0mzL._AC_SY200_.jpg');
-//     console.log("Kick off");
-//     var child_process = require("child_process");
-//     child_process.exec("ls", function(error, stdout, stderr) {
-//         if (error !== null) {
-//             console.log('exec error: ' + error);
-//             res.send('exec error: ' + error + " ")
-//         }
-//         console.log("Standard Output: " + stdout + " ");
-//         console.log("Error Output: " + stderr + " ");
+function callName_pose(req, res) {
+    third_url=req.body.third_url
+    var picStream2 = fs.createWriteStream("3.jpg");
+    picStream2.on('close', function() {
+      console.log('Second Image downloaded, processing begins');
+      var child_process = require("child_process");
+        child_process.exec(command_string_3, function(error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+                res.status(200).send('exec error: ' + error + " ")
+            }
+            console.log("Standard Output: " + stdout + " ");
+            console.log("Error Output: " + stderr + " ");
+            
+        });
+    });
+    request(second_url).pipe(picStream2); 
         
-//     });
-//     res.send("Processing is underway")
-// } 
+
+    res.status(200).send("Processing is underway")
+} 
+

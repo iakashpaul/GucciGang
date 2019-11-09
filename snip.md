@@ -55,3 +55,8 @@ Takes 30 mins
 --bg_ks 25  --ft_ks 3 \
 --has_detector  --post_tune  \
 --save_res  --ip http://51cb7644.ngrok.io --port 80
+
+
+
+-----------
+python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://localhost --port 8097

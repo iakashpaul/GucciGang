@@ -12,3 +12,4 @@ picStream.on('close', function() {
   console.log('file done');
 });
 request(url).pipe(picStream); 
+console.log('check');

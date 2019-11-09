@@ -2,7 +2,7 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script   src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
@@ -18,57 +18,54 @@
   }
       </style></head>
     <body>
-
+      <div class="navbar-fixed red darken-2">
             <nav>
-                    <div class="nav-wrapper">
-                      <a href="#" class="brand-logo">Logo</a>
+                    <div class="nav-wrapper red darken-2 ">
+                      <a href="#" class="brand-logo center"> Gucci Gang</a>
                       <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">JavaScript</a></li>
+                        <li><a href="sass.html">Generate Diverse Catalogue Images</a></li>
+                        <li><a href="badges.html">Create Personalized Product Images</a></li>
                       </ul>
                     </div>
                   </nav>
-        
+                  </div>
+        <br>
 
-                  <div class="row">
+                  <div class="row red lighten-4">
                         <div class="col s12 m6">
                           <div class="card large">
                             <div class="card-content">
-                              <span class="card-title">Card Title</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
+                              <span class="card-title">Generate Swapped Product Images</span>
+                              <p>Input URLs of Input model & target model with new dress to generate a swapped image</p>
                             </div>
                             <div class="card-action">
-                                    <a class="waves-effect waves-teal btn-flat" onclick="post_call()">Button</a>
-                              <a href="#">This is a link</a>
+                                    <a class="waves-effect waves-light red darken-2 btn-large right" onclick="swap_call()"><i class="large material-icons left">transfer_within_a_station</i>Swap!</a>
                             </div>
                           </div>
                         </div>
                         <div class="col s12 m6">
                                 <div class="card large">
                                   <div class="card-content">
-                                    <span class="card-title">Card Title</span>
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
+                                    <span class="card-title">Generate Multiple Model Views from 1 Image</span>
+                                    <p>Provide a single image URL of model to generate images in new poses</p>
                                   </div>
                                   <div class="card-action">
-                                    <a href="#">This is a link</a>
-                                    <a href="#">This is a link</a>
+                                    <div class="card-action">
+                                      <a class="waves-effect waves-light red darken-2 btn-large right" onclick="pose_call()"><i class="large material-icons left">accessibility</i>Pose 'em!!</a>
                                   </div>
                                 </div>
                               </div>
                       </div>
 
 
-                  <footer class="page-footer">
-                        <div class="container">
+                  <footer class="page-footer red lighten-4">
+                        <div class="container red lighten-4">
                           <div class="row">
-                            <div class="col l6 s12">
-                              <h5 class="white-text">Footer Content</h5>
-                              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                            <div class="col l12 s6">
+                              <h5 class="black-text">Gucci Gang by Team Blitzen | AKASH PAUL | Regn no: 2019009</h5>
+                              <p class="black-text text-lighten-4">Are you a Fashion Brand, Fashion Retailer or a Marketplace for Apparel? No more additional product photoshoots, booking models, photographers, re-shoots, month long product digitization cycles and thousands of rupees spent on a every shoot!</p>
                             </div>
-                            <div class="col l4 offset-l2 s12">
+                            <!-- <div class="col l4 offset-l2 s12">
                               <h5 class="white-text">Links</h5>
                               <ul>
                                 <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
@@ -76,19 +73,28 @@
                                 <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                                 <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
                               </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="footer-copyright">
-                          <div class="container">
-                          © 2014 Copyright Text
-                          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                            </div> -->
                           </div>
                         </div>
                       </footer>
                                           
 <script>
-function post_call() {
+function swap_call() {
+    $.ajax({
+    type: 'POST',
+    url: '/name/',
+    data: JSON.stringify ({name: 'jonas'}),
+    statusCode: {
+               200: function (response) {
+                      // do your stuff here
+                      console.log(response.responseText)
+                    }
+         },
+    contentType: "application/json",
+    dataType: 'json'
+});
+}
+function pose_call() {
     $.ajax({
     type: 'POST',
     url: '/name/',

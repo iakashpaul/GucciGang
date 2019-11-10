@@ -7,7 +7,7 @@
 
 ## Custom images
 
-!python run_view.py --gpu_ids 0 --model viewer --output_dir ./outputs/results/  --src_path   /content/try.png   --bg_ks 13  --ft_ks 3 --has_detector  --post_tune --front_warp --bg_replace --save_res --ip  http://51cb7644.ngrok.io --port 80
+!python run_view.py --gpu_ids 0 --model viewer --output_dir ./outputs/results/  --src_path   3.jpg   --bg_ks 13  --ft_ks 3 --has_detector  --post_tune --front_warp --bg_replace --save_res --ip  http://localhost --port 8097
 
 
 # Run on swap result
@@ -62,11 +62,16 @@ Takes 30 mins
 python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://localhost --port 8097
 
 # Access static assets
-Input 
+## Input 
 https://rakathon.akashpaul.com/src_imgs/imper_A_Pose/024_8_2_0000.jpg
 
-Target
+## Target
 https://rakathon.akashpaul.com/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg
 
-Result
+## Result-Swap
 https://rakathon.akashpaul.com/results/swappers/024_8_2_0000->Sweatshirts_Hoodies-id_0000680701_4_full.png
+https://rakathon.akashpaul.com/results/swappers/1->2.png
+https://rakathon.akashpaul.com/results/swappers/1-%3E2.png
+
+## Result-Views
+https://rakathon.akashpaul.com/results/viewers/3.jpg

@@ -12,9 +12,13 @@ app.listen(3000, function() {
   
 // Function callName() is executed whenever  
 // url is of the form localhost:3000/name 
-command_string=`python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://localhost --port 8097`
+command_string=`python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./1.jpg  --tgt_path    ./2.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://localhost --port 8097`
 
 command_string_2="ls"
+
+command_string_3=`python run_view.py --gpu_ids 0 --model viewer --output_dir ./outputs/results/  --src_path   ./3.jpg   --bg_ks 13  --ft_ks 3 --has_detector  --post_tune --front_warp --bg_replace --save_res --ip  http://localhost --port 8097`
+
+
 app.use(express.static(__dirname + '/outputs'));
 app.use(express.static(__dirname + '/assets'));
 app.get('/', function(req, res) {
@@ -40,7 +44,7 @@ function callName(req, res) {
     picStream2.on('close', function() {
       console.log('Second Image downloaded, processing begins');
       var child_process = require("child_process");
-        child_process.exec(command_string_2, function(error, stdout, stderr) {
+        child_process.exec(command_string, function(error, stdout, stderr) {
             if (error !== null) {
                 console.log('exec error: ' + error);
                 res.status(200).send('exec error: ' + error + " ")
@@ -66,9 +70,9 @@ app.post('/pose', callName_pose);
   
 function callName_pose(req, res) {
     third_url=req.body.third_url
-    var picStream2 = fs.createWriteStream("3.jpg");
-    picStream2.on('close', function() {
-      console.log('Second Image downloaded, processing begins');
+    var picStream3 = fs.createWriteStream("3.jpg");
+    picStream3.on('close', function() {
+      console.log('Third Image downloaded, processing begins');
       var child_process = require("child_process");
         child_process.exec(command_string_3, function(error, stdout, stderr) {
             if (error !== null) {
@@ -80,7 +84,7 @@ function callName_pose(req, res) {
             
         });
     });
-    request(second_url).pipe(picStream2); 
+    request(third_url).pipe(picStream3); 
         
 
     res.status(200).send("Processing is underway")

@@ -35,7 +35,7 @@
 
                   <div class="row red lighten-4">
                         <div class="col s12 m6">
-                          <div class="card large">
+                          <div class="card small">
                             <div class="card-content">
                               <span class="card-title">Generate Swapped Product Images</span>
                               <p>Input URLs of Input model & target model with new dress to generate a swapped image</p>
@@ -49,14 +49,19 @@
                                   <label for="secind_url">Target Dress Image URL</label>
                                 </div>
                               </div>
+                              
+                                
                             </div>
                             <div class="card-action">
                                     <a class="waves-effect waves-light red darken-2 btn-large right" onclick="swap_call()"><i class="large material-icons left">transfer_within_a_station</i>Swap!</a>
                             </div>
                           </div>
+                          <img id="first_img" class="materialboxed" width="200" >
+                          <img id="second_img" class="materialboxed" width="200">
+                          <img id="first_second_result_img" class="materialboxed" width="200">
                         </div>
                         <div class="col s12 m6">
-                                <div class="card large">
+                                <div class="card small">
                                   <div class="card-content">
                                     <span class="card-title">Generate Multiple Model Views From Just 1 Image!</span>
                                     <p>Provide a single image URL of model to generate images in new poses</p>
@@ -66,6 +71,9 @@
                                         <label for="third_url">Source Model Image URL</label>
                                       </div>
                                     </div>
+                                    <div class="row">
+                                    
+                                  </div>
                                   </div>
                                   <div class="card-action">
                                     <div class="card-action">
@@ -73,25 +81,20 @@
                                   </div>
                                 </div>
                               </div>
+                              <img id="third_img" class="materialboxed" width="200" >
+                              <img  id="third_result_img" class="materialboxed" width="500">
                       </div>
 
+                      
 
                   <footer class="page-footer red lighten-4">
                         <div class="container red lighten-4">
                           <div class="row">
                             <div class="col l12 s6">
+                                <hr>
                               <h5 class="black-text">Gucci Gang by Team Blitzen | AKASH PAUL | Regn no: 2019009</h5>
                               <p class="black-text text-lighten-4">Are you a Fashion Brand, Fashion Retailer or a Marketplace for Apparel? No more additional product photoshoots, booking models, photographers, re-shoots, month long product digitization cycles and thousands of rupees spent on a every shoot!</p>
                             </div>
-                            <!-- <div class="col l4 offset-l2 s12">
-                              <h5 class="white-text">Links</h5>
-                              <ul>
-                                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                              </ul>
-                            </div> -->
                           </div>
                         </div>
                       </footer>
@@ -101,6 +104,9 @@
 function swap_call() {
   var first = $('#first_url').val();
   var second = $('#second_url').val();
+  // TODO  Attach original images to img src inline & just update 1_2 img src
+  $("#first_img").attr("src",first);
+  $("#second_img").attr("src",second);
   console.log(first+" "+second)
     $.ajax({
     type: 'POST',
@@ -118,6 +124,8 @@ function swap_call() {
 }
 function pose_call() {
   var third = $('#third_url').val();
+    // TODO  Attach original images to img src inline & just update 3 img src
+    $("#third_img").attr("src",third);
   console.log(third)
     $.ajax({
     type: 'POST',
@@ -133,6 +141,58 @@ function pose_call() {
     dataType: 'json'
 });
 }
+
+ const interval2_3 = setInterval(function() {
+   // method to be executed;
+   $.ajax({
+    url:'https://rakathon.akashpaul.com/results/swappers/1->2.png',
+    type:'HEAD',
+    error: function()
+    {
+        //file not exists
+        console.log("It DONT EXISTS!")
+    },
+    success: function()
+    {
+        //file exists
+        
+        console.log("It EXISTS!")
+        $("#first_second_result_img").attr("src","https://rakathon.akashpaul.com/results/swappers/1->2.png");
+    },cache: false
+});
+ }, 5000);
+
+ const interval3 = setInterval(function() {
+   // method to be executed;
+   $.ajax({
+    url:'https://rakathon.akashpaul.com/results/viewers/3.jpg',
+    type:'HEAD',
+    error: function()
+    {
+        //file not exists
+        console.log("It DONT EXISTS!")
+    },
+    success: function()
+    {
+        //file exists
+        console.log("It EXISTS!")
+        $("#third_result_img").attr("src","https://rakathon.akashpaul.com/results/viewers/3.jpg");
+    },cache: false
+});
+ }, 5000);
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    options={}
+    var instances = M.Materialbox.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  // $(document).ready(function(){
+  //   $('.materialboxed').materialbox();
+  // });
 </script>
     </body>
 </html>

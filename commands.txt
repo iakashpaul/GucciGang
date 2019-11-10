@@ -1,0 +1,39 @@
+    1  nvidia-smi
+    2  mkdir gucci
+    3  cd gucci
+    4  git clone https://github.com/svip-lab/impersonator.git
+    5  cd impersonator/
+    6  pip --version
+    7  pip install -r requirements.txt
+    8  cd thirdparty/neural_renderer/
+    9  python setup.py install
+   10  cd ..
+   11  nano requirements.txt 
+   12  pip install -r requirements.txt
+   13  cd thirdparty/neural_renderer/
+   14  python setup.py install
+   15  cd  ../..
+   16  wget -O assets/pretrains.zip https://e4qc8w.dm.files.1drv.com/y4m1U9y7JgTyHO_KPTqRBi7CG1G0hVQGVbNrh-gw6eEv76w1MkLUA0n8D8AHA27E3f4z2roaUvdMJEGTUr4atynStuTl5HeS2qQ-m0AnacXhOHlDh5HpjygHd6vDCHGqv-QRC7QqIK_WvIbzhHGmJ2Ttmtvc4jsR53MXakD7Sm6IKMd8rzA3lJ3fdAa7zj5NsvKv-WQ5ijoMIGLQ1ElGuBJ0Q/pretrains.zip?download&psid=1
+   17  set +H
+   18  wget -O assets/pretrains.zip https://1drv.ws/u/s!AjjUqiJZsj8whLNw4QyntCMsDKQjSg?e=L77Elv
+   19  wget -O outputs/checkpoints.zip https://1drv.ws/u/s!AjjUqiJZsj8whLNyoEh67Uu0LlxquA?e=dkOnhQ
+   20  wget -O assets/samples.zip https://1drv.ws/u/s!AjjUqiJZsj8whLNz4BqnSgqrVwAXoQ?e=bC86db
+   21  ls
+   22  cd assets
+   23  unzip samples.zip 
+   24  unzip pretrains.zip 
+   25  cd ..
+   26  cd outputs/
+   27  unzip checkpoints.zip 
+   28  cd ..
+   29  python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://51cb7644.ngrok.io --port 80
+   30  visdom &
+   31  python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://5 --port 8097
+   32  python run_swap.py --gpu_ids 0 --model imitator --output_dir ./outputs/results/ --src_path      ./assets/src_imgs/imper_A_Pose/024_8_2_0000.jpg  --tgt_path      ./assets/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg  --bg_ks 13  --ft_ks 3 --has_detector  --post_tune  --front_warp --swap_part body  --save_res --ip http://localhost --port 8097
+   33  node -v
+   34  curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+   35  sudo bash nodesource_setup.sh
+   36  sudo apt-get install nodejs
+   37  node -v
+   38  npm -v
+   39  history > commands.txt

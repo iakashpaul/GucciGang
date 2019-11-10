@@ -23,10 +23,16 @@
       <div class="navbar-fixed red darken-2">
             <nav>
                     <div class="nav-wrapper red darken-2 ">
+                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                            <li><a href="https://rakathon.akashpaul.com">rakathon.akashpaul.com</a></li>
+                            <li><a href="https://github.com/iakashpaul/GucciGang">github.com/iakashpaul/GucciGang</a></li>
+                        </ul>
                       <a href="#" class="brand-logo center"> Gucci Gang</a>
                       <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Generate Diverse Catalogue Images</a></li>
-                        <li><a href="badges.html">Create Personalized Product Images</a></li>
+                        <li><a href="">Generate Diverse Catalogues</a></li>
+                        <li><a href="">Create Personalized Products</a></li>
+                        
+                    
                       </ul>
                     </div>
                   </nav>
@@ -41,11 +47,11 @@
                               <p>Input URLs of Input model & target model with new dress to generate a swapped image</p>
                               <div class="row">
                                 <div class="input-field col s6">
-                                  <input placeholder="" id="first_url" type="text" >
+                                  <input placeholder="https://rakathon.akashpaul.com/src_imgs/imper_A_Pose/024_8_2_0000.jpg" id="first_url" type="text" >
                                   <label for="first_url">Source Model Image URL</label>
                                 </div>
                                 <div class="input-field col s6">
-                                  <input id="second_url" type="text" >
+                                  <input placeholder="https://rakathon.akashpaul.com/src_imgs/fashion_man/Sweatshirts_Hoodies-id_0000680701_4_full.jpg"  id="second_url" type="text" >
                                   <label for="secind_url">Target Dress Image URL</label>
                                 </div>
                               </div>
@@ -53,7 +59,7 @@
                                 
                             </div>
                             <div class="card-action">
-                                    <a class="waves-effect waves-light red darken-2 btn-large right" onclick="swap_call()"><i class="large material-icons left">transfer_within_a_station</i>Swap!</a>
+                                    <a class="waves-effect waves-light red darken-2 btn-large right" onclick="swap_call()"><i class="large material-icons left">transfer_within_a_station</i>Swap 'EM!</a>
                             </div>
                           </div>
                           <img id="first_img" class="materialboxed" width="200" >
@@ -63,8 +69,10 @@
                           <h5 class="black-text">V.Dot Model & Views</h5>
                           <img class="materialboxed" width ="200"src="https://github.com/iakashpaul/GucciGang/blob/master/chad.jpg?raw=true" >
                           <img class="materialboxed" src="https://github.com/iakashpaul/GucciGang/blob/master/chad-og.gif?raw=true" >
+                          <br>
                           <h4 class="black-text">Transfer Ranveer's Image to model</h4>
                           <img class="materialboxed" width="500" src="https://github.com/iakashpaul/GucciGang/blob/master/plain-white-background.jpg?raw=true" >
+                          <br>
                         </div>
                         <div class="col s12 m6">
                                 <div class="card small">
@@ -73,7 +81,7 @@
                                     <p>Provide a single image URL of model to generate images in new poses</p>
                                     <div class="row">
                                       <div class="input-field col s6">
-                                        <input  id="third_url" type="text" >
+                                        <input placeholder="https://www.iceposter.com/thumbs/G331181_b.jpg"  id="third_url" type="text" >
                                         <label for="third_url">Source Model Image URL</label>
                                       </div>
                                     </div>
@@ -90,7 +98,7 @@
                               <img id="third_img" class="materialboxed" width="200" >
                               <img  id="third_result_img" class="materialboxed" width="500">
                               <br>
-                              <h5 class="black-text">V.Dot Model w/ Ranveer's dress</h5>
+                              <h5 class="black-text">V.Dot Model w/ Ranveer's Dress</h5>
                               <img class="materialboxed" width ="200"src="https://github.com/iakashpaul/GucciGang/blob/master/ranveer.jpg?raw=true" >
                               <img  class="materialboxed" src="https://github.com/iakashpaul/GucciGang/blob/master/chad-ranveer.gif?raw=true" >
                                 

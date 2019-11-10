@@ -102,6 +102,7 @@
 <script>
 
 function swap_call() {
+  M.toast({html: 'Processing dress swap...please wait', classes: 'rounded',displayLength:120000});
   var first = $('#first_url').val();
   var second = $('#second_url').val();
   // TODO  Attach original images to img src inline & just update 1_2 img src
@@ -123,6 +124,7 @@ function swap_call() {
 });
 }
 function pose_call() {
+  M.toast({html: 'Processing multiple views...please wait', classes: 'rounded',displayLength:120000});
   var third = $('#third_url').val();
     // TODO  Attach original images to img src inline & just update 3 img src
     $("#third_img").attr("src",third);

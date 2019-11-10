@@ -78,3 +78,10 @@ https://rakathon.akashpaul.com/results/swappers/1-%3E2.png
 https://www.iceposter.com/thumbs/G331181_b.jpg
 
 https://rakathon.akashpaul.com/results/viewers/3.jpg
+
+
+## Need to empty these folders via FileZilla for clean slate
+
+/home/ubuntu/gucci/impersonator/outputs/results/swappers
+
+/home/ubuntu/gucci/impersonator/outputs/results/viewers/

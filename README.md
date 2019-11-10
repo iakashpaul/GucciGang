@@ -17,6 +17,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+This is my entry to Rakathon 2019 finals, my tool makes use of Liquid Warping GANs paper for appearance & view synthesis [Liquid Warping GANs](https://svip-lab.github.io/ project/impersonator.html)
+
 
 [![Demo video](https://img.youtube.com/vi/cykCJcYywwE/0.jpg)](https://www.youtube.com/watch?v=cykCJcYywwE)
 
@@ -57,9 +59,9 @@ To get a deployed copy up and running follow these simple steps.
 
 * You can visit the page & try out both the tools as shown below,
 
-[![Demo of Dress Swapping](demo-1.png)]
+![Demo of Dress Swapping](demo-1.png)
 
-[![Demo of Multiple View Generation](demo-2.png)]
+![Demo of Multiple View Generation](demo-2.png)
 
 <!-- ROADMAP -->
 ## Roadmap

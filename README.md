@@ -17,7 +17,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is my entry to Rakathon 2019 finals, my tool makes use of Liquid Warping GANs paper for appearance & view synthesis [Liquid Warping GANs](https://svip-lab.github.io/ project/impersonator.html)
+This is my entry to Rakathon 2019 finals, my tool makes use of Liquid Warping GANs paper for appearance & view synthesis [Liquid Warping GANs](https://svip-lab.github.io/project/impersonator.html)
 
 
 [![Demo video](https://img.youtube.com/vi/cykCJcYywwE/0.jpg)](https://www.youtube.com/watch?v=cykCJcYywwE)
@@ -89,7 +89,7 @@ Project Link: [https://github.com/iakashpaul/GucciGang](https://github.com/iakas
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [Liquid Warping GANs](https://svip-lab.github.io/ project/impersonator.html)
+* [Liquid Warping GANs](https://svip-lab.github.io/project/impersonator.html)
 
 
 

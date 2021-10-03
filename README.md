@@ -66,7 +66,7 @@ To get a deployed copy up and running follow these simple steps.
 <!-- ROADMAP -->
 ## Roadmap
 
-The quality of the images can be improved by trainnig on higher quality datasets & increaseing model layer parameters, also to strive for acceptable performance on CPU instead of the GPU.
+The quality of the images can be improved by trainnig on higher quality datasets & increasing units in different layers, also to strive for acceptable performance on CPU instead of the GPU with quantization.
 
 
 <!-- LICENSE -->
@@ -80,7 +80,7 @@ Code written by me is MIT licensed
 <!-- CONTACT -->
 ## Contact
 
-Akash Paul - [@twitter_handle](https://twitter.com/iAkashPaul)
+Akash Paul - [@iAkashPaul](https://twitter.com/iAkashPaul)
 
 Project Link: [https://github.com/iakashpaul/GucciGang](https://github.com/iakashpaul/GucciGang)
 

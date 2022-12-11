@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/iakashpaul/TryMate#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "request": "^2.88.0",
     "unirest": "^0.6.0"
   }
